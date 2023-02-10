@@ -13,11 +13,18 @@ args = parser.parse_args()
 def check_runs_done(first, last):
 
     path = '/gpfs/exfel/exp/MID/202305/p003348/scratch/xpcs/'
-    dones = []
+    done_saxs = []
+    done_xpcs = []
 
     for run in np.arange(first, last):
         if (os.path.isfile(f'{path}r{run:04d}/SAXS.npy') ):
-            dones.append(run)
-    print(f"Run analysed: {dones}")
-
+            done_saxs.append(run)
+        if (os.path.isfile(f'{path}r{run:04d}/TTCF_corrected.nc') ):
+            done_xpcs.append(run)
+    print("\n")
+    print(f"SAXS run analysed: {done_saxs}")
+    print("\n")
+    print(f"XPCS run analysed: {done_xpcs}")
+    print("\n")
+    
 check_runs_done(args.run_first, args.run_last)
