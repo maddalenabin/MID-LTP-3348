@@ -1,5 +1,5 @@
 # run the script with the following command with the first and last run number as arguments
-# python test.py -rf {run1} -rl {run2}
+# python check_analysed.py -rf {run1} -rl {run2}
 
 import argparse, os
 import numpy as np
